@@ -20,7 +20,15 @@ public class GasEtaActivity extends AppCompatActivity {
 
         UtilGasEta.metodoNaoEstatico();
 
-       Toast.makeText(GasEtaActivity.this, UtilGasEta.mensagem(),Toast.LENGTH_LONG).show();
+       Toast.makeText(GasEtaActivity.this,
+               UtilGasEta.calcularMelhorOpcao(5.12, 3.39),
+               Toast.LENGTH_LONG).show();
+  }
 
-    }
+  public static double preco(){
+        return 9.99;
+  }
+
+
+
 }

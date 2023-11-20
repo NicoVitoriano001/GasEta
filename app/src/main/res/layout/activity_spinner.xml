@@ -40,7 +40,7 @@
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:hint="@string/txt_hint_edit_primeiro_nome"
+                android:hint="@string/txt_hint_edit_gasolina"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -52,7 +52,7 @@
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:hint="@string/txt_hint_edit_sobrenome"
+                android:hint="@string/txt_hint_edit_etanol"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -87,7 +87,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
-                android:text="@string/txt_selecione_um_curso"
+                android:text="@string/txt_resultado"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

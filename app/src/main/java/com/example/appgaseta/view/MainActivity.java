@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     CursoController cursoController;
     Pessoa pessoa;
     List<String> nomesDosCuros;
+
     Pessoa outrapessoa;
     String dadosPessoa;
     String dadosOutraPessoa;

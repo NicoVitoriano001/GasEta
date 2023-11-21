@@ -2,30 +2,39 @@ package com.example.appgaseta.apoio;
 
 public class UtilGasEta {
 
-    public void metodoEstatico(){
-//para utilizar, vai no MainActivity
+    public void metodoEstatico() {
     }
 
-    public static void metodoNaoEstatico(){}
-
-    public static String mensagem(){
-        return "Qualquer Mensagem";
+    public static void metodoNaoEstatico() {
     }
 
-    public static String calcularMelhorOpcao(double gasolina, double etanol){
+    public static String mensagem() {
+        return "Qualquer mensagem...";
+    }
 
-        // preco ideal = gasolina * 0.70 = 3,548
+    public static double preco() {
+        return 9.99;
+    }
 
-        double  precoIdeal = gasolina * 0.70;
+    public static String calcularMelhorOpcao(double gasolina, double etanol) {
+        // preco da gasolina: R$ 5,12
+        // preco do etanol: 3,99
+
+        // preço ideal = gasolina * 0.70 = R$ 3,548
+
+        double precoIdeal = gasolina * 0.70;
         String mensagemDeRetorno;
 
-        if (etanol<=precoIdeal){
+        if (etanol <= precoIdeal) {
             mensagemDeRetorno = "Abastecer com Etanol";
-            }else{
+        } else {
             mensagemDeRetorno = "Abastecer com Gasolina";
         }
-        return mensagemDeRetorno;
+
+        // se o preco do etanol for igual ou menor que o preco idel,
+        // melhor abastecer com etanol, caso contrário, a gasolina é
+        // mais vantagem.
+
+        return mensagemDeRetorno; // Abastecer com Gasolina - Abastecer com Etanol
     }
-
-
 }

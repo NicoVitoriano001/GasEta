@@ -13,9 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appgaseta.R;
 import com.example.appgaseta.apoio.UtilGasEta;
+import com.example.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
 
+    Combustivel combustivelGasolina;
+    Combustivel combustivelEtanol;
     EditText editGasolina;
     EditText editEtanol;
 
@@ -69,15 +72,18 @@ public class GasEtaActivity extends AppCompatActivity {
                     precoGasolina = Double.parseDouble(editGasolina.getText().toString());
                     precoEtanol = Double.parseDouble(editEtanol.getText().toString());
 
-                    recomendacao = UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol);
+                    recomendacao = UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol);
 
                     txtResultado.setText(recomendacao);
+
+                    btnSalvar.setEnabled(true);
 
 
                 } else {
                     Toast.makeText(GasEtaActivity.this,
                             "Por favor, digite os dados obrigatórios...",
                             Toast.LENGTH_LONG).show();
+                    btnSalvar.setEnabled(false);
                 }
 
 
@@ -88,6 +94,22 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //TODO: EditText imputType
+
+                combustivelGasolina= new Combustivel();
+                combustivelEtanol= new Combustivel();
+
+                combustivelGasolina.setNomeDoCombustivel("Gasolina");
+                combustivelGasolina.setPrecoDoCombustivel(precoGasolina);
+
+                combustivelEtanol.setNomeDoCombustivel("Etanol");
+                combustivelEtanol.setPrecoDoCombustivel(precoEtanol);
+
+                combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+
+                int parada = 0;
+
             }
         });
 
@@ -97,6 +119,8 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 editEtanol.setText("");
                 editGasolina.setText("");
+
+                btnSalvar.setEnabled(false);
 
             }
         });

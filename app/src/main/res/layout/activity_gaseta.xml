@@ -61,7 +61,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:hint="@string/txt_hint_edit_etanol"
-                    android:inputType="textPersonName" />
+                    android:inputType="numberDecimal" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <Button
@@ -101,6 +101,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:enabled="false"
                 android:text="@string/txt_button_salvar" />
 
 

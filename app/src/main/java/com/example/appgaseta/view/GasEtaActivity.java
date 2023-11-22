@@ -94,8 +94,6 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //TODO: EditText imputType
-
                 combustivelGasolina= new Combustivel();
                 combustivelEtanol= new Combustivel();
 

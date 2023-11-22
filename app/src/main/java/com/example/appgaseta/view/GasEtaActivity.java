@@ -11,11 +11,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appgaseta.Controller.CombustivelController;
 import com.example.appgaseta.R;
 import com.example.appgaseta.apoio.UtilGasEta;
 import com.example.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    CombustivelController controller;
 
     Combustivel combustivelGasolina;
     Combustivel combustivelEtanol;
@@ -39,11 +42,10 @@ public class GasEtaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gaseta);
 
+        controller = new CombustivelController(GasEtaActivity.this);
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
-
         txtResultado = findViewById(R.id.txtResultado);
-
         btnCalcular = findViewById(R.id.btnCalcular);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
@@ -94,6 +96,7 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 combustivelGasolina= new Combustivel();
                 combustivelEtanol= new Combustivel();
 
@@ -106,6 +109,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
                 combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
 
+                controller.salvar(combustivelGasolina);
+                controller.salvar(combustivelEtanol);
                 int parada = 0;
 
             }
@@ -119,6 +124,7 @@ public class GasEtaActivity extends AppCompatActivity {
                 editGasolina.setText("");
 
                 btnSalvar.setEnabled(false);
+                controller.limpar();
 
             }
         });

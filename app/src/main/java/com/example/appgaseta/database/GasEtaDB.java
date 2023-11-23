@@ -94,6 +94,15 @@ public void alterarObjeto(String tabela, ContentValues dados){
 }
 
 
+    public void deletarObjeto(String tabela, int id){
+        //pegar o ID do registro a ser alterado
+        // delete from TABLE WHERE id=?
+        db.delete(tabela, "id=?",
+                new String[]{Integer.toString(id)});
+
+    }
+
+
 }
 
 

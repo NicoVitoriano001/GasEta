@@ -2,6 +2,7 @@ package com.example.appgaseta.Controller;
 
 import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.service.controls.templates.ControlTemplate;
 
 import com.example.appgaseta.database.GasEtaDB;
 import com.example.appgaseta.model.Combustivel;
@@ -43,6 +44,18 @@ public class CombustivelController  extends GasEtaDB {
 
     public List<Combustivel> getListaDeDados(){
         return listarDados();
+    }
+
+    public void alterar(Combustivel combustivel){
+        ContentValues dados = new ContentValues();
+
+        dados.put("id", combustivel.getId());
+        dados.put("nomeDoCombustivel", combustivel.getNomeDoCombustivel());
+        dados.put("precoDoCombustivel", combustivel.getPrecoDoCombustivel());
+        dados.put("recomendacao", combustivel.getRecomendacao());
+
+        alterarObjeto("Combustivel", dados);
+
     }
 
     public void limpar(){

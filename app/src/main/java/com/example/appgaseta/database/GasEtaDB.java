@@ -66,7 +66,6 @@ public List<Combustivel> listarDados() {
     if (cursor.moveToFirst()) {
 
         do {
-
             registro = new Combustivel();
             registro.setId(cursor.getInt(0));
             registro.setNomeDoCombustivel(cursor.getString(1));
@@ -75,18 +74,25 @@ public List<Combustivel> listarDados() {
 
             lista.add(registro);
 
-
         }while(cursor.moveToNext());
 
-
-    } else {
-
-    }
-
+    } else { }
     return lista;
 
 
 }
+
+public void alterarObjeto(String tabela, ContentValues dados){
+
+        //pegar o ID do registro a ser alterado
+    // update TABLE set campo=novoDado WHERE id=?
+    int id = dados.getAsInteger("id");
+
+    db.update(tabela, dados, "id=?",
+            new String[]{Integer.toString(id)});
+
+}
+
 
 }
 

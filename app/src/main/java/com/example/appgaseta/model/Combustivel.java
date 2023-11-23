@@ -2,9 +2,18 @@ package com.example.appgaseta.model;
 
 public class Combustivel {
 
+    private int id;
     private String recomendacao;
     private double precoDoCombustivel;
     private String nomeDoCombustivel;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRecomendacao() {
         return recomendacao;

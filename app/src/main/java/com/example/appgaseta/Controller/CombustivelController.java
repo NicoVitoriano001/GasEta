@@ -7,6 +7,8 @@ import com.example.appgaseta.database.GasEtaDB;
 import com.example.appgaseta.model.Combustivel;
 import com.example.appgaseta.view.GasEtaActivity;
 
+import java.util.List;
+
 public class CombustivelController  extends GasEtaDB {
 
     SharedPreferences preferences;
@@ -37,6 +39,10 @@ public class CombustivelController  extends GasEtaDB {
         dados.put("recomendacao", combustivel.getRecomendacao());
 
         salvarObjeto("Combustivel", dados);
+    }
+
+    public List<Combustivel> getListaDeDados(){
+        return listarDados();
     }
 
     public void limpar(){

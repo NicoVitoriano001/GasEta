@@ -10,7 +10,7 @@ import com.example.appgaseta.view.GasEtaActivity;
 
 import java.util.List;
 
-public class CombustivelController  extends GasEtaDB {
+public class CombustivelController extends GasEtaDB {
 
     SharedPreferences preferences;
 
@@ -19,15 +19,13 @@ public class CombustivelController  extends GasEtaDB {
     //psfs
     public static final String NOME_PREFERENCES = "pref_gaseta";
 
-    public CombustivelController(GasEtaActivity activity){
+    public CombustivelController(GasEtaActivity activity) {
         super(activity);
-        preferences =
-                activity.getSharedPreferences(NOME_PREFERENCES,0);
+        preferences = activity.getSharedPreferences(NOME_PREFERENCES, 0);
         dadosPreferences = preferences.edit();
-
     }
 
-    public void salvar(Combustivel combustivel){
+    public void salvar(Combustivel combustivel) {
         ContentValues dados = new ContentValues();
 
         dadosPreferences.putString("combustivel", combustivel.getNomeDoCombustivel());
@@ -42,11 +40,11 @@ public class CombustivelController  extends GasEtaDB {
         salvarObjeto("Combustivel", dados);
     }
 
-    public List<Combustivel> getListaDeDados(){
+    public List<Combustivel> getListaDeDados() {
         return listarDados();
     }
 
-    public void alterar(Combustivel combustivel){
+    public void alterar(Combustivel combustivel) {
         ContentValues dados = new ContentValues();
 
         dados.put("id", combustivel.getId());
@@ -58,13 +56,12 @@ public class CombustivelController  extends GasEtaDB {
 
     }
 
-    public void deletar(int id){
+    public void deletar(int id) {
         deletarObjeto("Combustivel", id);
     }
 
 
-
-    public void limpar(){
+    public void limpar() {
         dadosPreferences.clear();
         dadosPreferences.apply();
     }
